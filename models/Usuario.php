@@ -1,5 +1,4 @@
 <?php
-// /models/Usuario.php
 
 require_once __DIR__ . '/../config/db.php';
 
@@ -7,7 +6,6 @@ class Usuario {
     private $conn;
     private $table = 'tab_usuario';
 
-    // Propriedades Públicas
     public $id;
     public $per_codigo;
     public $nome;
@@ -19,7 +17,6 @@ class Usuario {
         $this->conn = $database->getConnection();
     }
 
-    // Listar todos os usuários com o nome do perfil (JOIN)
     public function lerTodos() {
         $query = "SELECT
                     u.usu_codigo,
@@ -38,7 +35,6 @@ class Usuario {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // Criar um novo usuário
     public function criar() {
         $query = "INSERT INTO {$this->table}
                   SET
@@ -49,16 +45,13 @@ class Usuario {
 
         $stmt = $this->conn->prepare($query);
 
-        // Limpa os dados
         $this->nome = htmlspecialchars(strip_tags($this->nome));
         $this->login_acesso = htmlspecialchars(strip_tags($this->login_acesso));
         $this->per_codigo = htmlspecialchars(strip_tags($this->per_codigo));
         $this->senha = htmlspecialchars(strip_tags($this->senha));
         
-        // Criptografa a senha
         $this->senha = password_hash($this->senha, PASSWORD_BCRYPT);
 
-        // Associa os dados
         $stmt->bindParam(':nome', $this->nome);
         $stmt->bindParam(':login_acesso', $this->login_acesso);
         $stmt->bindParam(':senha', $this->senha);
@@ -69,14 +62,7 @@ class Usuario {
         }
         return false;
     }
-    
-    // ------------------------------------------------------------------- //
-    // MÉTODOS ADICIONADOS PARA EDIÇÃO, ATUALIZAÇÃO E EXCLUSÃO
-    // ------------------------------------------------------------------- //
 
-    /**
-     * Lê os dados de um único usuário para preencher o formulário de edição.
-     */
     public function lerUm() {
         $query = "SELECT usu_nome, usu_login_acesso, per_codigo
                   FROM " . $this->table . "
