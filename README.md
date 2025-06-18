@@ -31,6 +31,8 @@ Tecnologias Utilizadas:
 Estrutura do Projeto
 A estrutura de diretórios segue o padrão MVC para garantir a separação de responsabilidades.
 
+
+```
 /TESTETECNICO/
 ├── config/
 │   └── db.php                # Configuração da conexão com o banco de dados.
@@ -49,6 +51,9 @@ A estrutura de diretórios segue o padrão MVC para garantir a separação de re
 │       └── style.css         # Estilos CSS personalizados (ex: animação do botão).
 ├── .htaccess                 # Configuração do Apache para URLs amigáveis.
 └── index.php                 # Ponto de Entrada Único (Front Controller / Roteador).
+```
+
+
 
 Instalação e Execução:
 Siga os passos abaixo para executar o projeto localmente.
