@@ -1,4 +1,5 @@
 *****Sistema de Gestão de Usuários em PHP******
+
 Um projeto web simples para demonstrar um CRUD (Create, Read, Update, Delete) completo de usuários, construído com PHP puro e seguindo o padrão de arquitetura MVC (Model-View-Controller).
 
 **Funcionalidades**
@@ -9,7 +10,7 @@ Gestão de Usuários:
 - Editar as informações de um usuário existente.
 - Excluir um usuário.
   
-Gestão de Perfis: 
+Gestão de Perfis:
 - Estrutura de banco de dados para separação de usuários por perfis (ex: Administrador, Usuário Comum).
   
 Arquitetura MVC: 
